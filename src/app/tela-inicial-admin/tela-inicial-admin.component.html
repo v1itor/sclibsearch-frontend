@@ -1,0 +1,24 @@
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">LibSearch</a>
+    </div>
+</nav>
+<div class="container">
+    <h3 class="mt-5">Nossos livros:</h3>
+    <button class="btn btn-success my-3" [routerLink]="['/administrar-livro']">Adicionar Livro</button>
+    <div class="row" *ngFor="let bookRow of booksGrouped">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 my-3" *ngFor="let book of bookRow">
+            <a [routerLink]="['/administrar-livro', book.id]">
+            <div class="card" style="width: 18rem;">
+                <!-- <img [src]="book.imageUrl" class="card-img-top" alt="..."> -->
+                <div class="card-body">
+                    <h6>{{book.title}}</h6>
+                    <p class="card-text" style="overflow: hidden; text-overflow: ellipsis; height: 190px;">{{ book.blurb }}</p>
+                    <p class="card-text" style="font-weight: lighter;">{{ book.mainAuthor }}</p>
+                    <span class="badge badge-danger" style="background-color: black;">{{ book.genre }}</span>
+                </div>
+            </div>
+            </a>
+        </div>
+    </div>
+</div>
